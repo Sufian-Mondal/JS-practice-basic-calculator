@@ -32,18 +32,44 @@
 
 //using IIFEs function
 
-//
+//using one dimentional arry
 
-function highestScore(scores) {
-  let max = scores[0];
-  for (let x = 1; x < scores.length; x++) {
-    if (max < scores[x]) {
-      max = scores[x];
+// function highestScore(scores) {
+//   let max = scores[0];
+//   for (let x = 1; x < scores.length; x++) {
+//     if (max < scores[x]) {
+//       max = scores[x];
+//     }
+//   }
+//   return max;
+// }
+
+// let scores = [21, 28, 2, 88, 15];
+// let maxScore = highestScore(scores);
+// console.log(maxScore);
+
+//using 2d array
+
+function highestRunScorer(playersInfo) {
+  let highestScorer = playersInfo[0][0];
+  let highestScore = playersInfo[0][1];
+
+  for (let x = 1; x < playersInfo.length; x++) {
+    if (highestScore < playersInfo[x][1]) {
+      highestScore = playersInfo[x][1];
+      highestRunScorer = playersInfo[x][0];
     }
   }
-  return max;
+  return highestScorer;
 }
 
-let scores = [21, 28, 2, 88, 15];
-let maxScore = highestScore(scores);
-console.log(maxScore);
+let playersInfo = [
+  ["Ashraful", 98],
+  ["Musfique", 15],
+  ["Sakib", 75],
+  ["Miraz", 67],
+  ["Tasakin", 3],
+];
+
+let name = highestRunScorer(playersInfo);
+console.log(name);
